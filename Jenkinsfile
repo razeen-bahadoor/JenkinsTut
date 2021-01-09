@@ -1,6 +1,21 @@
 pipeline {
     agent any
+    environment{
+        CC = """${
+            sh(
+                returnStdout:true,
+                script: 'echo "clang"'
+            )}"""
 
+
+        EXIT_STATUS = """${sh(
+            returnStatus: true,
+            script: 'exit 1'
+
+
+        )}"""
+
+    }
     stages {
         stage('Build') {
             steps {
