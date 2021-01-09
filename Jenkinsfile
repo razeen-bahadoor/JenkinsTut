@@ -6,12 +6,11 @@ pipeline {
         DEBUG_FLAGS = '-g'
     }
 
-    // global dynamic env
-    environment{
-         awesomeVersion = sh(returnStdout: true, script: 'echo 0.0.1')
-    }
+
     // global dynamic environment
     environment{
+        awesomeVersion = sh(returnStdout: true, script: 'echo 0.0.1')
+
         CC = """${
             sh(
                 returnStdout:true,
