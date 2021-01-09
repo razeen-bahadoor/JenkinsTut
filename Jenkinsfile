@@ -1,17 +1,17 @@
 pipeline {
     agent any
 
+
+
     environment{
 
+     // static environment
         DEBUG_FLAGS = '-g'
-    }
-
 
     // global dynamic environment
-    environment{
         awesomeVersion = sh(returnStdout: true, script: 'echo 0.0.1')
-
-        CC = """${
+    // global dynamic environment
+      CC = """${
             sh(
                 returnStdout:true,
                 script: 'echo "clang"'
