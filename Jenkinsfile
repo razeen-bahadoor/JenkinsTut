@@ -28,12 +28,13 @@ pipeline {
 
     }
     // read properties from a file (pipeline utilities steps plugin reuqired)
-    stage("read properties from file") {
-        def properties = readProperties file: 'props.properties'
-        env.WEATHER = properties.WEATHER;
-        env.YEAR = properties.YEAR
-    }
+
     stages {
+       stage("read properties from file") {
+            def properties = readProperties file: 'props.properties'
+            env.WEATHER = properties.WEATHER;
+            env.YEAR = properties.YEAR
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
