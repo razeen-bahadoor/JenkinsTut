@@ -31,9 +31,12 @@ pipeline {
 
     stages {
        stage("read properties from file") {
-            def properties = readProperties file: 'props.properties'
-            env.WEATHER = properties.WEATHER;
-            env.YEAR = properties.YEAR
+           steps{
+             def properties = readProperties file: 'props.properties'
+                       env.WEATHER = properties.WEATHER;
+                       env.YEAR = properties.YEAR
+           }
+
         }
         stage('Build') {
             steps {
