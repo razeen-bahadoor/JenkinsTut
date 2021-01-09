@@ -13,8 +13,12 @@ pipeline {
             }
         }
         stage('Deploy') {
+        environment{
+            DEPLOY_FLAGS = 'g'
+        }
             steps {
                 echo 'Deploying....'
+                sh printenv
             }
         }
     }
