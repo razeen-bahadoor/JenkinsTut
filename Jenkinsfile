@@ -18,7 +18,7 @@ pipeline {
         }
             steps {
                 echo 'Deploying....'
-                sh printenv
+                sh 'printenv'
             }
         }
     }
